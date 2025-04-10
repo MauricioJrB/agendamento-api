@@ -9,7 +9,7 @@ export class RegisterUserService {
       where: { email },
     });
 
-    if (userAlreadyExists) throw new Error('User already exists!');
+    if (userAlreadyExists) throw new Error('Usuário já existe!');
 
     const password_hash = await hash(password, config.SALT_ROUNDS);
 

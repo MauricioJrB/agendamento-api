@@ -1,4 +1,4 @@
 export interface CreateServiceDTO {
   name: string;
-  description: string;
+  description?: string;
 }

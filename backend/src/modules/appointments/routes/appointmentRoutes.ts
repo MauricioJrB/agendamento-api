@@ -5,6 +5,7 @@ import { CancelAppointmentController } from '../controllers/CancelAppointmentCon
 import { CheckAvailabilityController } from '../controllers/CheckAvailabilityController';
 import { ListUserAppointmentsController } from '../controllers/ListUserAppointmentsController';
 import { ListAppointmentsByDateController } from '../controllers/ListAppointmentsByDateController ';
+import { ReportAppointmentController } from '../controllers/ReportAppointmentController ';
 
 const appointmentRoutes = Router();
 
@@ -13,6 +14,7 @@ const cancelAppointmentController = new CancelAppointmentController();
 const listUserAppointmentsController = new ListUserAppointmentsController();
 const checkAvailabilityController = new CheckAvailabilityController();
 const listAppointmentsByDateController = new ListAppointmentsByDateController();
+const reportAppointmentController = new ReportAppointmentController();
 
 appointmentRoutes.post(
   '/',
@@ -47,6 +49,10 @@ appointmentRoutes.post(
 
 appointmentRoutes.post('/date', (request: Request, response: Response) => {
   listAppointmentsByDateController.handle(request, response);
+});
+
+appointmentRoutes.get('/report', (request: Request, response: Response) => {
+  reportAppointmentController.handle(request, response);
 });
 
 export { appointmentRoutes };

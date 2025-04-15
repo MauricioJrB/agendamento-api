@@ -1,5 +1,5 @@
-import { formatDateBR } from '../../../utils/formatDate';
 import { prisma } from '../../../utils/prisma';
+import { formatDateBR } from '../../../utils/formatDate';
 import { ListUserAppointmentsDTO } from '../dtos/ListUserAppointmentsDTO';
 
 export class ListUserAppointmentsService {
@@ -13,8 +13,12 @@ export class ListUserAppointmentsService {
     });
 
     const listAppointments = appointments.map((appointment) => ({
-      ...appointment,
+      id: appointment.id,
+      status: appointment.status,
       formattedDate: formatDateBR(appointment.date),
+      service: {
+        name: appointment.service.name,
+      },
     }));
 
     return listAppointments;

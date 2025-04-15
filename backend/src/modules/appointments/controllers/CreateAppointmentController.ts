@@ -1,7 +1,7 @@
+import { ptBR } from 'date-fns/locale';
+import { parse } from 'date-fns';
 import { Request, Response } from 'express';
 import { CreateAppointmentService } from '../services/CreateAppointmentService';
-import { parse } from 'date-fns';
-import { ptBR } from 'date-fns/locale';
 
 export class CreateAppointmentController {
   public async handle(request: Request, response: Response) {

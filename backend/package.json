@@ -30,6 +30,7 @@
   "license": "ISC",
   "dependencies": {
     "@prisma/client": "^6.5.0",
+    "agendamento-api": "file:",
     "bcryptjs": "^3.0.2",
     "cors": "^2.8.5",
     "date-fns": "^4.1.0",

@@ -4,6 +4,7 @@ import { CreateAppointmentController } from '../controllers/CreateAppointmentCon
 import { CancelAppointmentController } from '../controllers/CancelAppointmentController';
 import { CheckAvailabilityController } from '../controllers/CheckAvailabilityController';
 import { ListUserAppointmentsController } from '../controllers/ListUserAppointmentsController';
+import { ListAppointmentsByDateController } from '../controllers/ListAppointmentsByDateController ';
 
 const appointmentRoutes = Router();
 
@@ -11,6 +12,7 @@ const createAppointmentController = new CreateAppointmentController();
 const cancelAppointmentController = new CancelAppointmentController();
 const listUserAppointmentsController = new ListUserAppointmentsController();
 const checkAvailabilityController = new CheckAvailabilityController();
+const listAppointmentsByDateController = new ListAppointmentsByDateController();
 
 appointmentRoutes.post(
   '/',
@@ -42,5 +44,9 @@ appointmentRoutes.post(
     checkAvailabilityController.handle(request, response);
   }
 );
+
+appointmentRoutes.post('/date', (request: Request, response: Response) => {
+  listAppointmentsByDateController.handle(request, response);
+});
 
 export { appointmentRoutes };
